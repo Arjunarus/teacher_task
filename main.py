@@ -1,10 +1,13 @@
 from __future__ import annotations
 
-AGE_RANGE = range(2, 200)
+AGE_RANGE = range(2, 100)
 ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ"
 
 
 def _is_simple(x: int) -> bool:
+    if x == 1:
+        return False
+
     for divider in range(2, x//2 + 1):
         if x % divider == 0:
             return False
@@ -13,7 +16,7 @@ def _is_simple(x: int) -> bool:
 
 def _get_not_simple_dividers(age: int) -> list[int]:
     res = []
-    for divider in range(4, age//2 + 1):
+    for divider in range(1, age + 1):
         if age % divider != 0:
             continue
 
